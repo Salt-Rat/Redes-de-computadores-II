@@ -52,12 +52,6 @@ O WebSocket inicia com uma negociação HTTP e mantém uma conexão TCP para tro
 
 Nas capturas, os dados de aplicação devem ser relacionados aos protocolos de transporte e rede. HTTP permite identificar método, URL e cabeçalhos; TCP mostra abertura e encerramento; DNS mostra consultas e respostas; ICMP permite medir RTT; DHCP mostra a atribuição de configuração IPv4.
 
-## Capturas e resultados
-
-Inicie a captura antes de executar a ação. Em testes locais, capture na interface `lo`; entre máquinas, use a interface Ethernet ou Wi-Fi correta. Configure a permissão de captura do Wireshark conforme a distribuição, sem executar o programa inteiro como root. Salve cada captura no diretório do exercício. Nos exercícios 5 a 9, salve também `evidencia.png` e preencha o parágrafo de observações do README correspondente.
-
-Os arquivos `.pcapng` e as imagens devem ser produzidos na prática. Os modelos fornecidos não afirmam resultados que ainda não foram medidos. Uma captura em loopback não demonstra passagem pela rede física.
-
 ## Verificação e entrega
 
 ```bash
