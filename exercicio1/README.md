@@ -6,9 +6,9 @@ Na raiz do projeto, com Python 3.10+ e sem dependências externas, abra dois ter
 
 ```bash
 # Terminal 1
-python -m exercicio1.servidor --host 127.0.0.1 --porta 5000
+python3 -m exercicio1.servidor --host 127.0.0.1 --porta 5000
 # Terminal 2; repita em outros terminais para testar concorrência
-python -m exercicio1.cliente --host 127.0.0.1 --porta 5000
+python3 -m exercicio1.cliente --host 127.0.0.1 --porta 5000
 ```
 
 Digite várias mensagens. Cada uma recebe `Mensagem recebida`. Entradas vazias são rejeitadas e `sair` fecha o cliente. O servidor registra data/hora, IP, porta e mensagem. Mensagens têm até 4096 bytes UTF-8 e são separadas por `\n`.

@@ -6,9 +6,9 @@ Na raiz, com Python 3.10+ e sem dependências externas:
 
 ```bash
 # Terminal 1
-python -m exercicio3.servidor --host 127.0.0.1 --porta 5001
+python3 -m exercicio3.servidor --host 127.0.0.1 --porta 5001
 # Terminais 2, 3 e 4
-python -m exercicio3.cliente --host 127.0.0.1 --porta 5001
+python3 -m exercicio3.cliente --host 127.0.0.1 --porta 5001
 ```
 
 Escolha nomes diferentes de 1 a 30 caracteres. As mensagens são entregues aos outros usuários com o nome do remetente. A entrada e a saída são notificadas. Digite `sair` para desconectar um usuário e confirme que os demais continuam conversando. A leitura usa uma thread separada; mensagens podem aparecer enquanto o prompt de digitação está visível.

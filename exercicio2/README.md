@@ -6,9 +6,9 @@ Na raiz, com Python 3.10+ e sem dependências externas:
 
 ```bash
 # Terminal 1
-python -m exercicio2.servidor --host 127.0.0.1 --porta 6000
+python3 -m exercicio2.servidor --host 127.0.0.1 --porta 6000
 # Terminal 2
-python -m exercicio2.cliente --host 127.0.0.1 --porta 6000
+python3 -m exercicio2.cliente --host 127.0.0.1 --porta 6000
 ```
 
 Digite texto e confira o eco. `sair` encerra. O tamanho é calculado em bytes UTF-8, com limite de 65.507. Sem resposta em três segundos, o cliente informa timeout; sistemas também podem retornar erro ICMP como conexão recusada. Não há retransmissão automática de aplicação.
