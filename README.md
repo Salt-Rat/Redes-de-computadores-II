@@ -58,6 +58,12 @@ Inicie a captura antes de executar a ação. Em testes locais, capture na interf
 
 Os arquivos `.pcapng` e as imagens devem ser produzidos na prática. Os modelos fornecidos não afirmam resultados que ainda não foram medidos. Uma captura em loopback não demonstra passagem pela rede física.
 
+## Verificação e entrega
+
+```bash
+python -m unittest discover -s testes -v
+```
+
 
 ## Referências técnicas
 
