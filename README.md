@@ -58,26 +58,6 @@ Inicie a captura antes de executar a ação. Em testes locais, capture na interf
 
 Os arquivos `.pcapng` e as imagens devem ser produzidos na prática. Os modelos fornecidos não afirmam resultados que ainda não foram medidos. Uma captura em loopback não demonstra passagem pela rede física.
 
-## Verificação e entrega
-
-```bash
-python -m unittest discover -s testes -v
-```
-
-Antes da entrega:
-
-- Substituir os nomes em todos os cabeçalhos, inclusive scripts de teste, Bash e HTML.
-- Executar os programas e testes em Linux e registrar a distribuição e a versão do Python.
-- Completar as capturas de cada exercício e as imagens dos exercícios 5 a 9.
-- Preencher observações com os números reais dos pacotes e os valores encontrados.
-- Criar um único repositório GitHub para o grupo e confirmar a participação de todos.
-
-Ambiente Linux utilizado: __________________________  
-Versão do Python: _________________________________  
-Data dos testes: __________________________________  
-Link do repositório: _______________________________
-
-Os testes automatizados verificam os protocolos de aplicação e concorrência em loopback. Eles não substituem as capturas nem a validação em Linux. Consulte `VALIDACAO.md` para o registro do que foi verificado durante a preparação deste pacote.
 
 ## Referências técnicas
 

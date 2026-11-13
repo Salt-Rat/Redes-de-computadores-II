@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- Participantes: [Jean Aquilla]  -->
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat WebSocket</title>
+<style>
+body { font: 16px system-ui; max-width: 750px; margin: 35px auto; padding: 15px; }
+input, button { padding: 8px; margin: 4px; }
+pre { white-space: pre-wrap; background: #eee; padding: 16px; min-height: 230px; }
+</style>
+<h1>Chat WebSocket</h1>
+<form id="conexao">
+  <label>Servidor <input id="url" value="ws://127.0.0.1:8765" required></label>
+  <label>Nome <input id="nome" maxlength="30" required></label>
+  <button id="entrar">Conectar</button>
+</form>
+<pre id="historico" aria-live="polite"></pre>
+<form id="envio">
+  <input id="mensagem" placeholder="Mensagem ou sair" aria-label="Mensagem" required>
+  <button id="enviar" disabled>Enviar</button>
+</form>
+<script>
+let socket;
+const $ = id => document.getElementById(id);
+// textContent exibe as mensagens sem interpretar HTML recebido.
+const registrar = texto => { $("historico").textContent += texto + "\n"; };
+$("conexao").onsubmit = evento => {
+  evento.preventDefault();
+  const nome = $("nome").value.trim();
+  if (!nome) return;
+  try { socket = new WebSocket($("url").value); }
+  catch (erro) { registrar(erro.message); return; }
+  $("entrar").disabled = true;
+  socket.onopen = () => socket.send(nome);
+  socket.onmessage = evento => {
+    registrar(evento.data);
+    if (evento.data.startsWith("Conectado.")) $("enviar").disabled = false;
+  };
+  socket.onerror = () => registrar("Falha na conexão. Verifique servidor, endereço e porta.");
+  socket.onclose = evento => {
+    registrar(`Conexão encerrada (${evento.code}) ${evento.reason}`);
+    $("entrar").disabled = false;
+    $("enviar").disabled = true;
+  };
+};
+$("envio").onsubmit = evento => {
+  evento.preventDefault();
+  const texto = $("mensagem").value.trim();
+  if (!texto || socket?.readyState !== WebSocket.OPEN) return;
+  if (new TextEncoder().encode(texto).length > 4096) {
+    registrar("Limite: 4096 bytes UTF-8."); return;
+  }
+  // A API faz o upgrade HTTP e o mascaramento dos frames do cliente.
+  socket.send(texto);
+  registrar(`Você: ${texto}`);
+  $("mensagem").value = "";
+};
+</script>
+</html>
